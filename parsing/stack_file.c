@@ -13,18 +13,18 @@ t_stack	*ft_lstnew(int nbr)
 	return (node);
 }
 
-void	ft_lstadd_back(t_stack **lst, t_stack *new)
+void	ft_lstadd_back(t_stack **stack, t_stack *new)
 {
 	t_stack	*tmp;
 
-	if (!lst || !new)
+	if (!stack || !new)
 		return ;
-	if (!*lst)
+	if (!*stack)
 	{
-		*lst = new;
+		*stack = new;
 		return ;
 	}
-	tmp = *lst;
+	tmp = *stack;
 	while (tmp->next)
 		tmp = tmp->next;
 	tmp->next = new;
