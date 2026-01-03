@@ -12,8 +12,7 @@ typedef struct l_stack
 	struct l_stack *next;
 	int index;
 }t_stack;
-
-
+void ft_fill_index(t_stack *head);
 void	ft_free_all(char **strall, int count);
 char	**ft_split(char const *s);
 int	ft_atoi(char *nptr);

@@ -1,6 +1,8 @@
+#include<stdio.h>
+#include"push_swap.h"
 #include "push_swap.h"
 
-int *ft_fill_index(t_stack *head)
+void ft_fill_index(t_stack *head)
 {
     t_stack *current;
     t_stack *compare;
@@ -22,16 +24,5 @@ int *ft_fill_index(t_stack *head)
         current->index = index;
         current = current->next;
     }
-    return (largest);
-}
-char *convert_index(t_stack *head ,int nbr)
-{
-    char *str;
-    int i = 0;
-    while ((nbr / 2 ) > 0)
-    {
-        if(nbr % 2 == 0)
-            str[i] = 0
-    }
-    
+
 }

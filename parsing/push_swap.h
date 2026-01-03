@@ -10,10 +10,10 @@ typedef struct l_stack
 {
 	int nbr;
 	struct l_stack *next;
+	unsigned char binary;
+	int index;
 }t_stack;
-void ft_pb(t_stack **stack_A, t_stack **stack_B);
-
-void ft_lstadd_front(t_stack **stack, t_stack *new);
+void ft_fill_index(t_stack *head);
 void	ft_free_all(char **strall, int count);
 char	**ft_split(char const *s);
 int	ft_atoi(char *nptr);

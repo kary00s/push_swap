@@ -12,12 +12,10 @@ t_stack	*ft_lstnew(int nbr)
 	node->next = NULL;
 	return (node);
 }
-void ft_lstadd_front(t_stack **stack, t_stack *new)
+void ft_lstadd_front(t_stack **stack, t_stack *new )
 {
-	if (!stack || !new)
-		return;	
-	new->next = *stack;
-	*stack = new;
+    new->next = *stack;
+    *stack = new;
 }
 
 void	ft_lstadd_back(t_stack **stack, t_stack *new)
