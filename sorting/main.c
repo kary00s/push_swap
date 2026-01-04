@@ -68,7 +68,7 @@ int main(int ac, char **av)
             ft_push_a(&stack_A,&stack_B);
         i++;
     }   
-    
+
      while (stack_A)
      {
          printf("%d\n",stack_A->nbr);

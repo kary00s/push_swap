@@ -17,7 +17,6 @@ void ft_lstadd_front(t_stack **stack, t_stack *new )
     new->next = *stack;
     *stack = new;
 }
-
 void	ft_lstadd_back(t_stack **stack, t_stack *new)
 {
 	t_stack	*tmp;
@@ -34,4 +33,14 @@ void	ft_lstadd_back(t_stack **stack, t_stack *new)
 		tmp = tmp->next;
 	tmp->next = new;
 	new->next = NULL;
+}
+int stack_size(t_stack *stack)
+{
+    int cnt = 0;
+    while (stack)
+    {
+        stack = stack->next;
+        cnt ++;
+    }
+    return cnt;
 }
