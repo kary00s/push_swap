@@ -31,15 +31,13 @@ int	ft_atoi(char *nptr)
 void ft_check_nbr(t_stack *stack,char *str)
 {
     int nbr;
- 
-    nbr = ft_atoi(str);
     if (!stack)
-        return;    
+        return;
+    nbr = ft_atoi(str);    
  	while (stack)
  	{
         if(stack->nbr == nbr)
             exit_failure();
-
         stack = stack->next;
     }
 

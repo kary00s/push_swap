@@ -5,6 +5,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<limits.h>
+#include<unistd.h>
 
 typedef struct l_stack
 {
@@ -24,6 +25,7 @@ t_stack	*ft_lstnew(int nbr);
 void	ft_lstadd_back(t_stack **lst, t_stack *new);
 int stack_size(t_stack *stack);
 void ft_lstadd_front(t_stack **stack, t_stack *new );
+void exit_failure(void);
 
 		//======= sorting ========//
 int  ft_fill_index(t_stack *head);

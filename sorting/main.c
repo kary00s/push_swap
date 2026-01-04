@@ -21,8 +21,7 @@ static void ft_fill_stack(int ac, char **av, t_stack **stack_A)
         {
             ft_check_nbr(*stack_A, tmp[j]);
             nbr = ft_atoi(tmp[j]);
-            tmp_stack = ft_lstnew(nbr);
-            ft_lstadd_back(stack_A, tmp_stack);
+            ft_lstadd_back(stack_A, ft_lstnew(nbr));
             j++;
         }
         ft_free_all(tmp, j);
@@ -49,7 +48,7 @@ static void radix_sort(t_stack **stack_A, t_stack **stack_B, int largest)
         j = 0;
         tmp_stack = *stack_B;
         cnt = 0;
-        while (j < size - 1)
+        while (j < size)
         {
             x = (*stack_A)->index >> i & 1;
             if (x == 1)
