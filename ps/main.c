@@ -1,6 +1,6 @@
 #include "push_swap.h"
 ///////////////////////////////////
-static void ft_fill_stack(int ac, char **av, t_stack **stack_A)
+static void ft_fill_stack(int ac, char **av, t_stack **stack_A,t_stack **stack_B)
 {
     char    **tmp = NULL;
     int     i = 1;
@@ -10,10 +10,8 @@ static void ft_fill_stack(int ac, char **av, t_stack **stack_A)
     {
         tmp = ft_split(av[i]);
         if (!tmp)
-        {
-            perror("split failure");
-            exit(EXIT_FAILURE);
-        }           
+            return(ft_free_stack(stack_A,stack_B),exit_failure());
+        
         j = 0;
         while (tmp[j])
         {
@@ -32,66 +30,41 @@ static int check_latgest(t_stack *stack_A)
     largest = len_of_largest(largest);
     return (largest);
 }
-static void radix_sort(t_stack **stack_A, t_stack **stack_B, int largest)
-{
-    int     i = 0;
-    int     j;
-    int     x;
-    int     size = stack_size(*stack_A);
-    t_stack *tmp_stack;
-    int     cnt;
-
-    while (i < largest)
-    {
-        j = 0;
-        tmp_stack = *stack_B;
-        cnt = 0;
-        while (j < size)
-        {
-            x = (*stack_A)->index >> i & 1;
-            if (x == 1)
-                ft_rotate(stack_A);
-            if (x == 0)
-                ft_push_b(stack_A, stack_B);
-            j++;
-        }
-        while (*stack_B)
-            ft_push_a(stack_A, stack_B);
-        i++;
-    }
-}
-static void print_stacks(t_stack *stack_A, t_stack *stack_B)
-{
-    while (stack_A)
-    {
-        printf("%d\n", stack_A->nbr);
-        stack_A = stack_A->next;
-    }
-    while (stack_B)
-    {
-        printf("%d\n", stack_B->nbr);
-        stack_B = stack_B->next;
-    }
-}
+// static void print_stacks(t_stack *stack_A, t_stack *stack_B)
+// {
+//     while (stack_A)
+//     {
+//         printf("%d\n", stack_A->nbr);
+//         stack_A = stack_A->next;
+//     }
+//     while (stack_B)
+//     {
+//         printf("%d\n", stack_B->nbr);
+//         stack_B = stack_B->next;
+//     }
+// }
 int main(int ac, char **av)
 {
     t_stack *stack_A = NULL;
     t_stack *stack_B = NULL;
     int     largest;
-
+    int size;
     if (ac < 2)
-    {
-        perror("nbr of args failure");
-        exit(EXIT_FAILURE);
-    }
+		return (ft_free_stack(&stack_A,&stack_B) , exit_failure(),0);
 
-    ft_fill_stack(ac, av, &stack_A);
-
+    ft_fill_stack(ac, av, &stack_A,&stack_B);
     largest = check_latgest(stack_A);
+    size =stack_size(stack_A); 
+    if( size == 2)
+        sort_two(&stack_A);
+    else if( size == 3)
+        sort_three(&stack_A);
+    else if( size == 5 || size == 4)
+        sort_five(&stack_A,&stack_B, size);
+    else
+        radix_sort(&stack_A, &stack_B, largest);
 
-    radix_sort(&stack_A, &stack_B, largest);
-
-    print_stacks(stack_A, stack_B);
-
+    // print_stacks(stack_A, stack_B);
+    ft_free_stack(&stack_A,&stack_B);
     return (0);
 }

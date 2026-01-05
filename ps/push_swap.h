@@ -26,9 +26,14 @@ void	ft_lstadd_back(t_stack **lst, t_stack *new);
 int stack_size(t_stack *stack);
 void ft_lstadd_front(t_stack **stack, t_stack *new );
 void exit_failure(void);
+void radix_sort(t_stack **stack_A, t_stack **stack_B, int largest);
 
 
-		//======= sorting ========//
+
+
+void	ft_free_stack(t_stack **stack_A,t_stack **stack_B);
+
+//======= sorting ========//
 int  ft_fill_index(t_stack *head);
 int len_of_largest(int nbr);
 void ft_shifting(t_stack *stack);
@@ -38,5 +43,9 @@ void ft_rotate(t_stack **head);
 void ft_push_b(t_stack **stack_A,t_stack **stack_B);
 void ft_push_a(t_stack **stack_A,t_stack **stack_B);
 void ft_rotate_reverse(t_stack **stack);
+
+void sort_two(t_stack **stack);
+void sort_three(t_stack **stack);
+void sort_five(t_stack **stack_A,t_stack **stack_B,int size);
 
 #endif

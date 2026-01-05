@@ -46,6 +46,6 @@ int stack_size(t_stack *stack)
 }
 void exit_failure(void)
 {
-	write(2,"error",5);
+	write(2,"Error\n",6);
 	exit(EXIT_FAILURE);
 }

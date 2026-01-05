@@ -68,9 +68,9 @@ char	**ft_split(char const *s)
 
 	index = 0;
 	i = 0;
-	if (!s)
-		return (NULL);
 	len = ft_count_words(s);
+	if (len == 0)
+		exit_failure();
 	strall = malloc(sizeof(char *) * (len + 1));
 	if (!strall)
 		return (NULL);

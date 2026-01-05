@@ -11,11 +11,12 @@ void ft_swap(t_stack **head)
     first->next  = second->next ;
     second->next = first;
     *head = second ; 
-    write(1,"swapc",2);
+    write(1,"sa\n",3);
 }
-//============ rotate A / B =================//
 void ft_rotate(t_stack **head)
+//============ rotate A / B =================//
 {
+
     t_stack *new_stak;
     t_stack *tmp;
     tmp = *head;
@@ -50,6 +51,6 @@ void ft_rotate_reverse(t_stack **stack)
     alo = tmp->next;
     tmp->next = NULL;
     ft_lstadd_front(stack,alo);
-    write(1,"rr",2);
+    write(1,"rr\n",3);
     
 }

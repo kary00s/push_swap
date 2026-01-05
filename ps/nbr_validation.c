@@ -5,7 +5,7 @@ int	ft_atoi(char *nptr)
 	int				sign;
 	unsigned long	res;
 	int i;
-	
+
     i = 0;
 	res = 0;
 	sign = 1;
@@ -15,25 +15,23 @@ int	ft_atoi(char *nptr)
 			sign = -1;
 		i++;
 	}
-	while(nptr[i])
+	while((nptr[i] >= '0' && nptr[i] <= '9') && (nptr[i]))
 	{
-        if((nptr[i] >= '0' && nptr[i] <= '9'))
-	    {	res = res * 10 + (nptr[i] - '0');
-            if((sign == -1 && res >= 2147483648) || (sign == 1 && res >= 2147483647))
-                exit_failure();
-        }
-        else
+    	res = res * 10 + (nptr[i] - '0');
+        if((sign == -1 && res >= 2147483648) || (sign == 1 && res >= 2147483647))
             exit_failure();
-    i++;
-        }
+        i++;
+    }
+    if (!(nptr[--i] >= '0' && nptr[--i] <= '9'))
+            exit_failure();  
 	return (res * sign);
 }
 void ft_check_nbr(t_stack *stack,char *str)
 {
     int nbr;
-    if (!stack)
-        return;
-    nbr = ft_atoi(str);    
+    if (!str)
+		exit_failure();
+    nbr = ft_atoi(str);
  	while (stack)
  	{
         if(stack->nbr == nbr)
