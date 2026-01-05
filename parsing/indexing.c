@@ -1,5 +1,4 @@
-#include<stdio.h>
-#include"push_swap.h"
+#include"../push_swap.h"
 
 int  ft_fill_index(t_stack *head)
 {

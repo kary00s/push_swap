@@ -1,4 +1,4 @@
-#include "push_swap.h"
+#include "../push_swap.h"
 
 int	ft_atoi(char *nptr)
 {
@@ -19,23 +19,24 @@ int	ft_atoi(char *nptr)
 	{
     	res = res * 10 + (nptr[i] - '0');
         if((sign == -1 && res >= 2147483648) || (sign == 1 && res >= 2147483647))
-            exit_failure();
+            ft_exit_failure();
         i++;
     }
     if (!(nptr[--i] >= '0' && nptr[--i] <= '9'))
-            exit_failure();  
+            return (ft_exit_failure(),0);  
+	free(nptr);
 	return (res * sign);
 }
 void ft_check_nbr(t_stack *stack,char *str)
 {
     int nbr;
     if (!str)
-		exit_failure();
+		ft_exit_failure();
     nbr = ft_atoi(str);
  	while (stack)
  	{
         if(stack->nbr == nbr)
-            exit_failure();
+            ft_exit_failure();
         stack = stack->next;
     }
 

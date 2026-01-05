@@ -15,6 +15,7 @@ typedef struct l_stack
 }t_stack;
 
 		//======= parsing ========//
+void ft_exit_failure(void);
 void	ft_free_all(char **strall, int count);
 char	**ft_split(char const *s);
 int main(int ac, char **av);
@@ -25,13 +26,9 @@ t_stack	*ft_lstnew(int nbr);
 void	ft_lstadd_back(t_stack **lst, t_stack *new);
 int stack_size(t_stack *stack);
 void ft_lstadd_front(t_stack **stack, t_stack *new );
-void exit_failure(void);
 void radix_sort(t_stack **stack_A, t_stack **stack_B, int largest);
 
-
-
-
-void	ft_free_stack(t_stack **stack_A,t_stack **stack_B);
+void	ft_free_stack(t_stack **stack_A);
 
 //======= sorting ========//
 int  ft_fill_index(t_stack *head);

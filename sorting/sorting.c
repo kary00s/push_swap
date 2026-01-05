@@ -1,18 +1,14 @@
-#include "push_swap.h"
+#include "../push_swap.h"
 void radix_sort(t_stack **stack_A, t_stack **stack_B, int largest)
 {
     int     i = 0;
     int     j;
     int     x;
     int     size = stack_size(*stack_A);
-    t_stack *tmp_stack;
-    int     cnt;
 
     while (i < largest)
     {
         j = 0;
-        tmp_stack = *stack_B;
-        cnt = 0;
         while (j < size)
         {
             x = (*stack_A)->index >> i & 1;

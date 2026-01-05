@@ -1,5 +1,5 @@
-#include "push_swap.h"
-
+#include "../push_swap.h"
+#include<unistd.h>
 
 t_stack	*ft_lstnew(int nbr)
 {
@@ -7,7 +7,7 @@ t_stack	*ft_lstnew(int nbr)
 
 	node = (t_stack *)malloc(sizeof(t_stack));
 	if (!node)
-		return (NULL);
+		return (ft_exit_failure(),NULL);
 	node->nbr = nbr;
 	node->next = NULL;
 	return (node);
@@ -44,8 +44,9 @@ int stack_size(t_stack *stack)
     }
     return cnt;
 }
-void exit_failure(void)
+void ft_exit_failure(void)
 {
 	write(2,"Error\n",6);
+
 	exit(EXIT_FAILURE);
 }

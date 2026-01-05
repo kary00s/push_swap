@@ -5,7 +5,7 @@ CFLAGS = -Wall -Werror -Wextra
 
 HEADER = push_swap.h
 	
-SRCS = args_validation.c nbr_validation.c stack_file.c indexing.c  main.c  moves.c 
+SRCS = ./sorting/stack_file.c ./parsing/args_validation.c ./parsing/nbr_validation.c  ./parsing/indexing.c  ./sorting/main.c  ./sorting/moves.c ./sorting/sorting.c ./sorting/free.c
 
 OBJECTS = $(SRCS:.c=.o) 
 

@@ -1,4 +1,4 @@
-#include "push_swap.h"
+#include "../push_swap.h"
 
 static int	ft_count_words(const char *s)
 {
@@ -70,7 +70,8 @@ char	**ft_split(char const *s)
 	i = 0;
 	len = ft_count_words(s);
 	if (len == 0)
-		exit_failure();
+		exit(EXIT_FAILURE);
+
 	strall = malloc(sizeof(char *) * (len + 1));
 	if (!strall)
 		return (NULL);
@@ -78,10 +79,7 @@ char	**ft_split(char const *s)
 	{
 		strall[i] = ft_fil(s, &index);
 		if (strall[i] == NULL)
-		{
-			ft_free_all(strall, i);
-			return (NULL);
-		}
+			return (ft_free_all(strall, i),NULL);
 		i++;
 	}
 	strall[i] = NULL;
