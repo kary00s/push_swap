@@ -48,7 +48,7 @@ static char	*ft_fil(char const *s, int *index)
 		i++;
 	out = malloc(i - (*index) + 1);
 	if (!out)
-		return (NULL);
+	return (NULL);
 	while ((*index) < i)
 	{
 		out[j] = s[(*index)];
@@ -70,13 +70,13 @@ char	**ft_split(char const *s)
 	i = 0;
 	len = ft_count_words(s);
 	if (len == 0)
-		exit(EXIT_FAILURE);
+		ft_exit_failure();
 
 	strall = malloc(sizeof(char *) * (len + 1));
 	if (!strall)
 		return (NULL);
 	while (i < len)
-	{
+	{ 
 		strall[i] = ft_fil(s, &index);
 		if (strall[i] == NULL)
 			return (ft_free_all(strall, i),NULL);

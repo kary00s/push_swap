@@ -20,7 +20,6 @@ void ft_fill_stack(int ac, char **av, t_stack **stack_A)
             tmp_node = ft_lstnew(nbr);
             ft_lstadd_back(stack_A,tmp_node);
             j++;
-            free(tmp[j]);
         }
         ft_free_all(tmp, j);
         i++;
@@ -32,19 +31,19 @@ int check_latgest(t_stack *stack_A)
     largest = len_of_largest(largest);
     return (largest);
 }
-// void print_stacks(t_stack *stack_A, t_stack *stack_B)
-// {
-//     while (stack_A)
-//     {
-//         printf("%d\n", stack_A->nbr);
-//         stack_A = stack_A->next;
-//     }
-//     while (stack_B)
-//     {
-//         printf("%d\n", stack_B->nbr);
-//         stack_B = stack_B->next;
-//     }
-// }
+void print_stacks(t_stack *stack_A, t_stack *stack_B)
+{
+    while (stack_A)
+    {
+        printf("%d\n", stack_A->nbr);
+        stack_A = stack_A->next;
+    }
+    while (stack_B)
+    {
+        printf("%d\n", stack_B->nbr);
+        stack_B = stack_B->next;
+    }
+}
 int main(int ac, char **av)
 {
     t_stack *stack_A = NULL;
@@ -65,7 +64,8 @@ int main(int ac, char **av)
     else
         radix_sort(&stack_A, &stack_B, largest);
 
-    // print_stacks(stack_A, stack_B);
+    print_stacks(stack_A, stack_B);
+
     ft_free_stack(&stack_A);
     exit(EXIT_SUCCESS);
 }

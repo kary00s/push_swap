@@ -9,12 +9,14 @@ int	ft_atoi(char *nptr)
     i = 0;
 	res = 0;
 	sign = 1;
+	int temp;
 	if (nptr[i] == '-' || nptr[i] == '+')
 	{
 		if (nptr[i] == '-')
 			sign = -1;
 		i++;
 	}
+	temp = i;
 	while((nptr[i] >= '0' && nptr[i] <= '9') && (nptr[i]))
 	{
     	res = res * 10 + (nptr[i] - '0');
@@ -22,9 +24,11 @@ int	ft_atoi(char *nptr)
             ft_exit_failure();
         i++;
     }
-    if (!(nptr[--i] >= '0' && nptr[--i] <= '9'))
-            return (ft_exit_failure(),0);  
-	// free(nptr);
+    
+	if (temp == i)
+    {
+		    return (ft_exit_failure(),0);  
+	}
 	return (res * sign);
 }
 void ft_check_nbr(t_stack *stack,char *str)
