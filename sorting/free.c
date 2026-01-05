@@ -2,10 +2,11 @@
 
 void	ft_free_stack(t_stack **stack_A)
 {
-	t_stack *tmp = (*stack_A);
-	while (tmp)
+	t_stack *tmp;
+	while (*stack_A)
 	{
-		tmp->next = (*stack_A)->next ;
+		tmp = (*stack_A)->next ;
 		free(*stack_A);
+		(*stack_A) = tmp;
 	}
 }

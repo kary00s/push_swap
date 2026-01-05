@@ -11,7 +11,7 @@ void ft_fill_stack(int ac, char **av, t_stack **stack_A)
     {
         tmp = ft_split(av[i]);
         if (!tmp)
-             return (ft_free_all(tmp, i), ft_exit_failure());
+             return (ft_exit_failure());
         j = 0;
         while (tmp[j])
         {
@@ -21,7 +21,6 @@ void ft_fill_stack(int ac, char **av, t_stack **stack_A)
             ft_lstadd_back(stack_A,tmp_node);
             j++;
             free(tmp[j]);
-            free(tmp_node);
         }
         ft_free_all(tmp, j);
         i++;
@@ -33,19 +32,19 @@ int check_latgest(t_stack *stack_A)
     largest = len_of_largest(largest);
     return (largest);
 }
-void print_stacks(t_stack *stack_A, t_stack *stack_B)
-{
-    while (stack_A)
-    {
-        printf("%d\n", stack_A->nbr);
-        stack_A = stack_A->next;
-    }
-    while (stack_B)
-    {
-        printf("%d\n", stack_B->nbr);
-        stack_B = stack_B->next;
-    }
-}
+// void print_stacks(t_stack *stack_A, t_stack *stack_B)
+// {
+//     while (stack_A)
+//     {
+//         printf("%d\n", stack_A->nbr);
+//         stack_A = stack_A->next;
+//     }
+//     while (stack_B)
+//     {
+//         printf("%d\n", stack_B->nbr);
+//         stack_B = stack_B->next;
+//     }
+// }
 int main(int ac, char **av)
 {
     t_stack *stack_A = NULL;
@@ -53,11 +52,10 @@ int main(int ac, char **av)
     int     largest;
     int size;
     if (ac < 2)
-		return (ft_exit_failure(),0);
+        return (ft_exit_failure(),0);
     ft_fill_stack(ac, av, &stack_A);
     largest = check_latgest(stack_A);    
     size =stack_size(stack_A); 
-    printf("============%d \n",size);
     if( size == 2)
         sort_two(&stack_A);
     else if( size == 3)
@@ -67,7 +65,7 @@ int main(int ac, char **av)
     else
         radix_sort(&stack_A, &stack_B, largest);
 
-    print_stacks(stack_A, stack_B);
-    // ft_free_stack(&stack_A);
-    return (0);
+    // print_stacks(stack_A, stack_B);
+    ft_free_stack(&stack_A);
+    exit(EXIT_SUCCESS);
 }

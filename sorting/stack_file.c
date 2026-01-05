@@ -7,7 +7,7 @@ t_stack	*ft_lstnew(int nbr)
 
 	node = (t_stack *)malloc(sizeof(t_stack));
 	if (!node)
-		return (ft_exit_failure(),NULL);
+		return (NULL);
 	node->nbr = nbr;
 	node->next = NULL;
 	return (node);
@@ -47,6 +47,5 @@ int stack_size(t_stack *stack)
 void ft_exit_failure(void)
 {
 	write(2,"Error\n",6);
-
 	exit(EXIT_FAILURE);
 }

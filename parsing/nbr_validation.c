@@ -24,7 +24,7 @@ int	ft_atoi(char *nptr)
     }
     if (!(nptr[--i] >= '0' && nptr[--i] <= '9'))
             return (ft_exit_failure(),0);  
-	free(nptr);
+	// free(nptr);
 	return (res * sign);
 }
 void ft_check_nbr(t_stack *stack,char *str)
