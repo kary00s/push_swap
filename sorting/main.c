@@ -15,6 +15,7 @@ void ft_fill_stack(int ac, char **av, t_stack **stack_A)
         j = 0;
         while (tmp[j])
         {
+            printf("%s\n",tmp[j]);
             nbr = ft_atoi(tmp[j]);
             ft_check_nbr(*stack_A, tmp[j]);
             tmp_node = ft_lstnew(nbr);
