@@ -1,5 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   stack_file.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kanahiz <kanahiz@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/01/07 20:55:30 by kanahiz           #+#    #+#             */
+/*   Updated: 2026/01/07 21:08:20 by kanahiz          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../push_swap.h"
-#include<unistd.h>
 
 t_stack	*ft_lstnew(int nbr)
 {
@@ -12,11 +23,13 @@ t_stack	*ft_lstnew(int nbr)
 	node->next = NULL;
 	return (node);
 }
-void ft_lstadd_front(t_stack **stack, t_stack *new )
+
+void	ft_lstadd_front(t_stack **stack, t_stack *new)
 {
-    new->next = *stack;
-    *stack = new;
+	new->next = *stack;
+	*stack = new;
 }
+
 void	ft_lstadd_back(t_stack **stack, t_stack *new)
 {
 	t_stack	*tmp;
@@ -34,18 +47,22 @@ void	ft_lstadd_back(t_stack **stack, t_stack *new)
 	tmp->next = new;
 	new->next = NULL;
 }
-int stack_size(t_stack *stack)
+
+int	stack_size(t_stack *stack)
 {
-    int cnt = 0;
-    while (stack)
-    {
-        stack = stack->next;
-        cnt ++;
-    }
-    return cnt;
+	int	cnt;
+
+	cnt = 0;
+	while (stack)
+	{
+		stack = stack->next;
+		cnt++;
+	}
+	return (cnt);
 }
-void ft_exit_failure(void)
+
+void	ft_exit_failure(void)
 {
-	write(2,"Error\n",6);
+	write(2, "Error\n", 6);
 	exit(EXIT_FAILURE);
 }

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   args_validation.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kanahiz <kanahiz@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/01/07 20:48:35 by kanahiz           #+#    #+#             */
+/*   Updated: 2026/01/07 20:48:54 by kanahiz          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../push_swap.h"
 
 static int	ft_count_words(const char *s)
@@ -30,7 +42,7 @@ void	ft_free_all(char **strall, int count)
 		free(strall[i]);
 		i++;
 	}
-	free (strall);
+	free(strall);
 }
 
 static char	*ft_fil(char const *s, int *index)
@@ -43,12 +55,11 @@ static char	*ft_fil(char const *s, int *index)
 	j = 0;
 	while (s[i++] == ' ')
 		(*index)++;
-
 	while (s[i] != ' ' && s[i])
 		i++;
 	out = malloc(i - (*index) + 1);
 	if (!out)
-	return (NULL);
+		return (NULL);
 	while ((*index) < i)
 	{
 		out[j] = s[(*index)];
@@ -58,6 +69,7 @@ static char	*ft_fil(char const *s, int *index)
 	out[j] = '\0';
 	return (out);
 }
+
 char	**ft_split(char const *s)
 {
 	int		index;
@@ -70,15 +82,14 @@ char	**ft_split(char const *s)
 	len = ft_count_words(s);
 	if (len == 0)
 		ft_exit_failure();
-
 	strall = malloc(sizeof(char *) * (len + 1));
 	if (!strall)
 		return (NULL);
 	while (i < len)
-	{ 
+	{
 		strall[i] = ft_fil(s, &index);
 		if (strall[i] == NULL)
-			return (ft_free_all(strall, i),NULL);
+			return (ft_free_all(strall, i), NULL);
 		i++;
 	}
 	strall[i] = NULL;
