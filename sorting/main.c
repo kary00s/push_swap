@@ -47,10 +47,10 @@ void print_stacks(t_stack *stack_A, t_stack *stack_B)
 }
 int main(int ac, char **av)
 {
-    t_stack *stack_A = NULL;
-    t_stack *stack_B = NULL;
-    int     largest;
-    int size;
+t_stack *stack_A = NULL;
+t_stack *stack_B = NULL;
+int     largest;
+int size;
     if (ac < 2)
         return (ft_exit_failure(),0);
     ft_fill_stack(ac, av, &stack_A);

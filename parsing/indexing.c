@@ -1,32 +1,36 @@
 #include"../push_swap.h"
 
-int  ft_fill_index(t_stack *head)
+int ft_fill_index(t_stack *head)
 {
-    t_stack *current;
-    t_stack *compare;
+    t_stack *back;
+    t_stack *front;
     int index;
-    int largest = 0;
-    current = head;
-    while (current)
+    int largest ;
+
+    largest = 0;
+    back = head;
+    while (back)
     {
         index = 0;
-        compare = head;
-        while (compare)
+        front = head;
+        while (front)
         {
-            if (current->nbr > compare->nbr)
+            if (back->nbr > front->nbr)
                 index++;
             if (index > largest)
                 largest = index;
-            compare = compare->next;
+            front = front->next;
         }
-        current->index = index;
-        current = current->next;
+        back->index = index;
+        back = back->next;
     }
     return (largest);
 }
 int len_of_largest(int nbr)
 {
-    int cnt = 0;
+    int cnt;
+
+    cnt = 0;
     while (nbr > 0)
     {
         nbr = nbr / 2;

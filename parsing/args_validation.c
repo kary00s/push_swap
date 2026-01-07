@@ -43,7 +43,7 @@ static char	*ft_fil(char const *s, int *index)
 	j = 0;
 	while (s[i++] == ' ')
 		(*index)++;
-	
+
 	while (s[i] != ' ' && s[i])
 		i++;
 	out = malloc(i - (*index) + 1);
@@ -58,7 +58,6 @@ static char	*ft_fil(char const *s, int *index)
 	out[j] = '\0';
 	return (out);
 }
-////================  split =============================///
 char	**ft_split(char const *s)
 {
 	int		index;

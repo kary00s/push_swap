@@ -2,9 +2,9 @@
 
 int	ft_atoi(char *nptr)
 {
-	int				sign;
 	unsigned long	res;
-	int i;
+	int	sign;
+	int	i;
 
     i = 0;
 	res = 0;
@@ -24,11 +24,8 @@ int	ft_atoi(char *nptr)
             ft_exit_failure();
         i++;
     }
-    
 	if (temp == i)
-    {
 		    return (ft_exit_failure(),0);  
-	}
 	return (res * sign);
 }
 void ft_check_nbr(t_stack *stack,char *str)
