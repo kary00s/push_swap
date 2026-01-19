@@ -6,7 +6,7 @@
 /*   By: kanahiz <kanahiz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 20:54:07 by kanahiz           #+#    #+#             */
-/*   Updated: 2026/01/07 20:54:42 by kanahiz          ###   ########.fr       */
+/*   Updated: 2026/01/19 21:29:48 by kanahiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,11 @@ int	ft_atoi(char *nptr)
 	while ((nptr[i] >= '0' && nptr[i] <= '9') && (nptr[i]))
 	{
 		res = res * 10 + (nptr[i++] - '0');
-		if ((sign == -1 && res >= 2147483648) || (sign == 1
-				&& res >= 2147483647))
+		if ((sign == -1 && res > 2147483648) || (sign == 1
+				&& res > 2147483647))
 			ft_exit_failure();
 	}
-	if (temp == i)
+	if ((!(nptr[i] >= '0' && nptr[i] <= '9') && nptr[i] != '\0') || temp == i)
 		return (ft_exit_failure(), 0);
 	return (res * sign);
 }
