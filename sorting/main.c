@@ -6,7 +6,7 @@
 /*   By: kanahiz <kanahiz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 20:55:10 by kanahiz           #+#    #+#             */
-/*   Updated: 2026/01/07 21:19:21 by kanahiz          ###   ########.fr       */
+/*   Updated: 2026/01/21 20:34:10 by kanahiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,6 @@ int	main(int ac, char **av)
 
 	stack_a = NULL;
 	stack_b = NULL;
-	if (ac < 2)
-		return (ft_exit_failure(), 0);
 	ft_fill_stack(ac, av, &stack_a);
 	largest = check_latgest(stack_a);
 	size = stack_size(stack_a);
