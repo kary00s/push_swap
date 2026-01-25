@@ -1,7 +1,7 @@
 
 NAME = push_swap
 CC = cc
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra -g3
 
 HEADER = push_swap.h
 	

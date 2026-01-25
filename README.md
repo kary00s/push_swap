@@ -51,7 +51,7 @@ The push_swap project is compiled using the provided Makefile. The Makefile incl
 - [Stack implementation](https://www.geeksforgeeks.org/dsa/introduction-to-stack-data-structure-and-algorithm-tutorials/)
 - [Time and Space Complexity](https://www.geeksforgeeks.org/dsa/time-complexity-and-space-complexity/)
 - I created a summary for this project that includes all the necessary information and the knowledge I gained - [View the summary](https://www.tldraw.com/f/1R3ycDjL_3AGT1mKvcYuh?d=v-1804.-568.3500.3525.page)
-
+- parsing part : peer-to-peer discussion with mel-herc.
 
 ## Result
 - This project helped me strengthen my understanding of :

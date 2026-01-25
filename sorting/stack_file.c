@@ -6,7 +6,7 @@
 /*   By: kanahiz <kanahiz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 20:55:30 by kanahiz           #+#    #+#             */
-/*   Updated: 2026/01/19 20:26:39 by kanahiz          ###   ########.fr       */
+/*   Updated: 2026/01/25 05:44:27 by kanahiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,10 +59,4 @@ int	stack_size(t_stack *stack)
 		cnt++;
 	}
 	return (cnt);
-}
-
-void	ft_exit_failure(void)
-{
-	write(2, "Error\n", 6);
-	exit(EXIT_FAILURE);
 }

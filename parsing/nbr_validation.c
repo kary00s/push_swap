@@ -6,13 +6,13 @@
 /*   By: kanahiz <kanahiz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 20:54:07 by kanahiz           #+#    #+#             */
-/*   Updated: 2026/01/19 21:29:48 by kanahiz          ###   ########.fr       */
+/*   Updated: 2026/01/25 05:37:06 by kanahiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int	ft_atoi(char *nptr)
+signed long	ft_atoi(char *nptr)
 {
 	unsigned long	res;
 	int				sign;
@@ -34,24 +34,22 @@ int	ft_atoi(char *nptr)
 		res = res * 10 + (nptr[i++] - '0');
 		if ((sign == -1 && res > 2147483648) || (sign == 1
 				&& res > 2147483647))
-			ft_exit_failure();
+			return (2147483649);
 	}
 	if ((!(nptr[i] >= '0' && nptr[i] <= '9') && nptr[i] != '\0') || temp == i)
-		return (ft_exit_failure(), 0);
+		return (2147483649);
 	return (res * sign);
 }
 
-void	ft_check_nbr(t_stack *stack, char *str)
-{
-	int	nbr;
-
-	if (!str)
-		ft_exit_failure();
-	nbr = ft_atoi(str);
+int	ft_check_nbr(t_stack *stack, int nbr)
+{	
+	if (!stack)
+		return (1);
 	while (stack)
 	{
 		if (stack->nbr == nbr)
-			ft_exit_failure();
+			return (-1);
 		stack = stack->next;
 	}
+	return (1);
 }

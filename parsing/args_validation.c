@@ -6,7 +6,7 @@
 /*   By: kanahiz <kanahiz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 20:48:35 by kanahiz           #+#    #+#             */
-/*   Updated: 2026/01/07 20:48:54 by kanahiz          ###   ########.fr       */
+/*   Updated: 2026/01/25 05:50:50 by kanahiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,19 +30,6 @@ static int	ft_count_words(const char *s)
 			i++;
 	}
 	return (count);
-}
-
-void	ft_free_all(char **strall, int count)
-{
-	int	i;
-
-	i = 0;
-	while (i < count)
-	{
-		free(strall[i]);
-		i++;
-	}
-	free(strall);
 }
 
 static char	*ft_fil(char const *s, int *index)
@@ -81,7 +68,7 @@ char	**ft_split(char const *s)
 	i = 0;
 	len = ft_count_words(s);
 	if (len == 0)
-		ft_exit_failure();
+		return (NULL);
 	strall = malloc(sizeof(char *) * (len + 1));
 	if (!strall)
 		return (NULL);
@@ -89,7 +76,7 @@ char	**ft_split(char const *s)
 	{
 		strall[i] = ft_fil(s, &index);
 		if (strall[i] == NULL)
-			return (ft_free_all(strall, i), NULL);
+			return (ft_free_all(strall));
 		i++;
 	}
 	strall[i] = NULL;

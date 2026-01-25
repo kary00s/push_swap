@@ -6,7 +6,7 @@
 /*   By: kanahiz <kanahiz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 20:55:10 by kanahiz           #+#    #+#             */
-/*   Updated: 2026/01/21 20:34:10 by kanahiz          ###   ########.fr       */
+/*   Updated: 2026/01/25 05:50:06 by kanahiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 void	ft_fill_stack(int ac, char **av, t_stack **stack_a)
 {
-	char	**tmp;
-	int		i;
-	int		j;
-	int		nbr;
+	char			**tmp;
+	int				i;
+	int				j;
+	signed long		nbr;
 
 	tmp = NULL;
 	i = 1;
@@ -25,16 +25,18 @@ void	ft_fill_stack(int ac, char **av, t_stack **stack_a)
 	{
 		tmp = ft_split(av[i]);
 		if (!tmp)
-			return (ft_exit_failure());
+			return (ft_free_and_exit(stack_a, tmp));
 		j = 0;
 		while (tmp[j])
 		{
 			nbr = ft_atoi(tmp[j]);
-			ft_check_nbr(*stack_a, tmp[j]);
+			if ((nbr > 2147483647) || (nbr < -2147483648)
+				|| (ft_check_nbr(*stack_a, nbr) == -1))
+				return (ft_free_and_exit(stack_a, tmp));
 			ft_lstadd_back(stack_a, ft_lstnew(nbr));
 			j++;
 		}
-		ft_free_all(tmp, j);
+		ft_free_all(tmp);
 		i++;
 	}
 }
@@ -69,5 +71,5 @@ int	main(int ac, char **av)
 	else
 		radix_sort(&stack_a, &stack_b, largest);
 	ft_free_stack(&stack_a);
-	exit(EXIT_SUCCESS);
+	exit(1);
 }
