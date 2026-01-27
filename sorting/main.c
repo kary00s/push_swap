@@ -6,7 +6,7 @@
 /*   By: kanahiz <kanahiz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 20:55:10 by kanahiz           #+#    #+#             */
-/*   Updated: 2026/01/25 05:50:06 by kanahiz          ###   ########.fr       */
+/*   Updated: 2026/01/27 13:22:25 by kanahiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,20 +56,25 @@ int	main(int ac, char **av)
 	t_stack	*stack_b;
 	int		largest;
 	int		size;
+	int		stack_status;
 
 	stack_a = NULL;
 	stack_b = NULL;
 	ft_fill_stack(ac, av, &stack_a);
+	stack_status = ft_check_stack(stack_a);
 	largest = check_latgest(stack_a);
 	size = stack_size(stack_a);
-	if (size == 2)
-		sort_two(&stack_a);
-	else if (size == 3)
-		sort_three(&stack_a);
-	else if (size == 5 || size == 4)
-		sort_five(&stack_a, &stack_b, size);
-	else
-		radix_sort(&stack_a, &stack_b, largest);
+	if (stack_status == 1)
+	{
+		if (size == 2)
+			sort_two(&stack_a);
+		else if (size == 3)
+			sort_three(&stack_a);
+		else if (size == 5 || size == 4)
+			sort_five(&stack_a, &stack_b, size);
+		else
+			radix_sort(&stack_a, &stack_b, largest);
+	}
 	ft_free_stack(&stack_a);
 	exit(1);
 }

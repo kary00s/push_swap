@@ -6,7 +6,7 @@
 /*   By: kanahiz <kanahiz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 20:55:30 by kanahiz           #+#    #+#             */
-/*   Updated: 2026/01/25 05:44:27 by kanahiz          ###   ########.fr       */
+/*   Updated: 2026/01/27 13:16:26 by kanahiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,4 +59,24 @@ int	stack_size(t_stack *stack)
 		cnt++;
 	}
 	return (cnt);
+}
+
+int	ft_check_stack(t_stack *head)
+{
+	t_stack	*curr;
+	t_stack	*next;
+
+	curr = head;
+	next = curr->next;
+	while (curr && next)
+	{
+		if (curr->nbr < next->nbr)
+		{
+			curr = curr->next;
+			next = next->next;
+		}
+		else
+			return (1);
+	}
+	return (-1);
 }

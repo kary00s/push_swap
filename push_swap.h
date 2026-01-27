@@ -6,7 +6,7 @@
 /*   By: kanahiz <kanahiz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 21:15:35 by kanahiz           #+#    #+#             */
-/*   Updated: 2026/01/25 05:35:32 by kanahiz          ###   ########.fr       */
+/*   Updated: 2026/01/27 13:21:48 by kanahiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define PUSH_SWAP_H
 
 # include <limits.h>
-# include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
 
@@ -25,6 +24,7 @@ typedef struct l_stack
 	int				index;
 }					t_stack;
 
+int					ft_check_stack(t_stack *head);
 void				ft_free_and_exit(t_stack **stack, char **splited);
 void				ft_exit_failure(void);
 char				**ft_free_all(char **strall);

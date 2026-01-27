@@ -6,7 +6,7 @@
 /*   By: kanahiz <kanahiz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 20:55:18 by kanahiz           #+#    #+#             */
-/*   Updated: 2026/01/07 21:07:28 by kanahiz          ###   ########.fr       */
+/*   Updated: 2026/01/27 13:13:10 by kanahiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,5 +68,5 @@ void	ft_rotate_reverse(t_stack **stack)
 	alo = tmp->next;
 	tmp->next = NULL;
 	ft_lstadd_front(stack, alo);
-	write(1, "rr\n", 3);
+	write(1, "rra\n", 4);
 }
